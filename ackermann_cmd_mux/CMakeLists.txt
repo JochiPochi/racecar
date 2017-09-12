@@ -24,7 +24,7 @@ include_directories(include ${catkin_INCLUDE_DIRS} ${yaml-cpp_INCLUDE_DIRS})
 
 # Nodelet library
 add_library(${PROJECT_NAME}_nodelet src/ackermann_cmd_mux_nodelet.cpp src/ackermann_cmd_subscribers.cpp)
-add_dependencies(${PROJECT_NAME}_nodelet ackermann_msgs_gencpp)
+add_dependencies(${PROJECT_NAME}_nodelet ${catkin_EXPORTED_TARGETS})
 add_dependencies(${PROJECT_NAME}_nodelet ${PROJECT_NAME}_gencfg)
 
 target_link_libraries(${PROJECT_NAME}_nodelet ${catkin_LIBRARIES} ${yaml-cpp_LIBRARIES})
