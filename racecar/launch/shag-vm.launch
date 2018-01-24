@@ -4,4 +4,10 @@
   <arg name="imu_model" default="$(optenv RACECAR_IMU razor_imu)" doc="imu sensor types [razor_imu, razor_imu_m0]" />
   <arg name="run_camera" default="false"/>
 
+  <!-- joystick to ackermann command -->
+  <arg name="joy_teleop_config"
+       default="$(find racecar)/config/$(arg racecar_version)/joy_teleop.yaml" />
+  <rosparam file="$(arg joy_teleop_config)" command="load" />
+  <node pkg="joy" type="joy_node" name="vm_joy_node" />
+
 </launch>
