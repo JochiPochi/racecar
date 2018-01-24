@@ -9,11 +9,6 @@
     <arg name="racecar_version" value="$(arg racecar_version)" />
   </include>
 
-  #<!-- joystick to ackermann command -->
-  #<include file="$(find racecar)/launch/includes/common/joy_teleop.launch.xml" >
-  #  <arg name="racecar_version" value="$(arg racecar_version)" />
-  #</include>
-
   <!-- default (zero) ackermann command -->
   <node name="zero_ackermann_cmd" pkg="rostopic" type="rostopic" args="pub -r 4 ackermann_cmd_mux/input/default ackermann_msgs/AckermannDriveStamped '{header: auto, drive: {steering_angle: 0.0, speed: 0.0} }'" />
 
