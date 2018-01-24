@@ -5,9 +5,8 @@
   <arg name="run_camera" default="false"/>
 
   <!-- joystick to ackermann command -->
-  <arg name="joy_teleop_config"
-       default="$(find racecar)/config/$(arg racecar_version)/joy_teleop.yaml" />
-  <rosparam file="$(arg joy_teleop_config)" command="load" />
-  <node pkg="joy" type="joy_node" name="vm_joy_node" />
+  <include file="$(find racecar)/launch/includes/common/joy_teleop.launch.xml" >
+    <arg name="racecar_version" value="$(arg racecar_version)" />
+  </include>
 
 </launch>
